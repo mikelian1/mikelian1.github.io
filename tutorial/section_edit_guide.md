@@ -282,8 +282,8 @@ teaser: "pub/ReWeaver.png"
 示例：
 
 ```yaml
-- year: "2024"
-  text: "Outstanding Student & Youth League Member, Harbin Institute of Technology"
+- year: "2021-2022"
+  text: "Outstanding Student of the Year, Harbin Institute of Technology"
 ```
 
 ### 新增一条奖项
