@@ -21,3 +21,6 @@ Hi! I am **Ming Li (李明)**, a first-year Ph.D. student jointly trained by **Z
 
 ## Publications
 {% include sections/publications.html compact=true %}
+
+## Honors&Awards
+{% include sections/honors.html %}
