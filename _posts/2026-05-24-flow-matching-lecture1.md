@@ -42,7 +42,7 @@ $$
 
 生成模型的一个非常重要的思路就是，我们从一个容易采样的 initial distribution 出发，采样一个样本，通过神经网络，转换为符合 data distribution 的样本。
 
-![image-20260521224621154](./images/image-20260521224621154.png)
+![image-20260521224621154](/images/flow-matching-lecture1/image-20260521224621154.png)
 
 往往我们的 initial distribution 是一个 $d$ 维的标准正态分布。这里的 $d$ 正好是我们数据的维度。
 
@@ -115,7 +115,7 @@ $$
 
 这里提到的几个概念的关系如图所示：
 
-![flow_model_concept](./images/flow_model_concept.png)
+![flow_model_concept](/images/flow-matching-lecture1/flow_model_concept.png)
 
 也就是说，这些概念的核心是 Vector Filed(VF)，一个 VF 就定义了所有。
 
@@ -125,13 +125,13 @@ $$
 
 课件给了一个 example
 
-![image-20260523173824406](./images/image-20260523173824406.png)
+![image-20260523173824406](/images/flow-matching-lecture1/image-20260523173824406.png)
 
 本质上来讲，给定一个 $u_t(x)$，我们就可以去求解一个 Flow，然后通过验证 initial condition 和 ODE 被满足确认这个 Flow 是正确的。
 
 在闭式解不容易求出的情况下，可以用 Euler method 数值求解。
 
-![image-20260523174205588](./images/image-20260523174205588.png)
+![image-20260523174205588](/images/flow-matching-lecture1/image-20260523174205588.png)
 
 ---
 
@@ -147,7 +147,7 @@ $$
 
 从而，可以用之前提到的 Euler method 从 Flow Model 中那采样。
 
-![image-20260523222323160](./images/image-20260523222323160.png)
+![image-20260523222323160](/images/flow-matching-lecture1/image-20260523222323160.png)
 
 ## 3 Diffusion Model
 
@@ -200,7 +200,7 @@ $$
 
 Sample 的算法:
 
-![image-20260524150459459](./images/image-20260524150459459.png)
+![image-20260524150459459](/images/flow-matching-lecture1/image-20260524150459459.png)
 
 1. 这里除了 $\sigma_t \sqrt{h}\epsilon$ 之外, 其他部分都和模拟 ODE 的 Euler method 是一样的.
 2. 这里用了一种叫**重参数化**的技术将 (13) 中的 $dW_t$ 分布采样变换为了从 $\epsilon\sim \mathcal{N}(0,I_d)$ 中采样再乘以时间步长 $h$ 的根.
@@ -209,10 +209,10 @@ Sample 的算法:
 
 将之前 ODE 的例子改写为 SDE 版本:
 
-![image-20260524151046804](./images/image-20260524151046804.png)
+![image-20260524151046804](/images/flow-matching-lecture1/image-20260524151046804.png)
 
 ---
 
 与 ODE 一样, 我们可以定义一个神经网络 $u^\theta_t$ 来表示 VF, 从而定义一个 Diffusion Model
 
-![image-20260524151236843](./images/image-20260524151236843.png)
+![image-20260524151236843](/images/flow-matching-lecture1/image-20260524151236843.png)
