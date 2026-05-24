@@ -1,3 +1,11 @@
+---
+title: "Flow Matching Lecture 1"
+date: 2026-04-07
+permalink: /posts/2026/05/flow-matching-lecture1./
+tags:
+  - flow matching
+---
+
 # Generative AI with Stochastic Differential Equations
 
 ## 1 Formalize Generating Something
