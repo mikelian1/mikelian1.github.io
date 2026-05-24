@@ -11,25 +11,33 @@ tags:
 ## 1 Formalize Generating Something
 
 我们将我们要生成的对象表示为向量
+
 $$
 \mathcal{z} \in \mathbb{R}^d
 $$
+
 某个生成对象的好坏很多时候是主观的，因此我们将生成问题建模为生成对象符合数据分布的可能性。 
 
 在概率论的语言下，我们想要得到的是一个数据分布，即我们想要生成的对象的分布。我们记作
+
 $$
 p_{data}
 $$
+
 从而，进行一次生成就是在分布中做一次采样。
 
 我们用于训练的数据集可以理解为有限数量符合分布 $p_{data}$ 的样本
+
 $$
 z_1,\dots,z_N \sim p_{data}
 $$
+
 往往有用的是条件生成，即支持用户输入一个 prompt 作为 condition（记作 $y$），这样一来我们需要建模的就是一个条件分布，基于条件的生成就是在这样一个条件分布采样
+
 $$
 z \sim p_{data}(\cdot | y)
 $$
+
 我们将从无条件的生成出发。
 
 生成模型的一个非常重要的思路就是，我们从一个容易采样的 initial distribution 出发，采样一个样本，通过神经网络，转换为符合 data distribution 的样本。
@@ -37,6 +45,7 @@ $$
 ![image-20260521224621154](./images/image-20260521224621154.png)
 
 往往我们的 initial distribution 是一个 $d$ 维的标准正态分布。这里的 $d$ 正好是我们数据的维度。
+
 $$
 p_{init} = \mathcal{N}(0,I_d)
 $$
@@ -48,25 +57,34 @@ $$
 我们先 formalize 几个概念
 
 **Trajectory**:
+
 $$
 X:[0,1]\to \mathbb{R}^d,\,t\mapsto X_t
 $$
+
 **Vector Field**
+
 $$
 u:\mathbb{R}^d \times [0,1]\to \mathbb{R} ^d ,\,     (x,t)\mapsto u_t(x)
 $$
+
 **Ordinary differential equation(ODE)**
+
 $$
-X_0 = x_0 (initial \,\, condition)\\
-\frac{d}{dt}X_t = u_t(X_t)
+\begin{aligned}
+X_0 &= x_0 \quad (initial \, condition)\\
+\frac{d}{dt}X_t &= u_t(X_t)
+\end{aligned}
 $$
+
 **Flow**
+
 $$
-\psi:\mathbb{R}^d\times [0,1]\to \mathbb{R}^d ,\, (x_0,t)\mapsto \psi_t(x_0)\\
-
-\psi_0(x_0) = x_0\\
-
-\frac{d}{dt}\psi_t(x_0)=u_t(\psi_t(x_0))
+\begin{aligned}
+\psi &: \mathbb{R}^d\times [0,1]\to \mathbb{R}^d ,\, (x_0,t)\mapsto \psi_t(x_0)\\
+\psi_0(x_0) &= x_0\\
+\frac{d}{dt}\psi_t(x_0) &= u_t(\psi_t(x_0))
+\end{aligned}
 $$
 
 > [!NOTE]
@@ -120,9 +138,11 @@ $$
 回到我们对生成模型的建模，我们需要找到一个方法，将 $p_{init}$ 转化为 $p_{data}$ .
 
 我们的做法是对于 $X_0\sim p_{init}$，我们通过一个 ODE 将其演化为 $X_1\sim p_{data}$：
+
 $$
 \frac{d}{dt}X_t=u_t^\theta(X_t)
 $$
+
 这里的 VF 由 neural network 定义，网络参数为 $\theta$
 
 从而，可以用之前提到的 Euler method 从 Flow Model 中那采样。
@@ -134,16 +154,22 @@ $$
 ODE 的解是一个 trajectory, SDE 的解则是一个 stochastic process，或者说 random trajectory.
 
 此外，在 Flow model 的基础上，我们会额外定义一个 diffusion coefficient $\sigma$, 最通用的方案是将 $\sigma$ 定义为时间的函数，即
+
 $$
 \sigma:[0,1]\to \mathbb{R}_{\ge 0},\,t\mapsto \sigma_t
 $$
+
 并且 $\sigma$ 是非负的。当 $\sigma=0$ 的时候 Diffusion model 退化回 Flow model. (13) 可以看到 $\sigma$ 控制注入的噪声 (或者说随机性) 的强度。
 
 为了注入随机性，Flow Model 中的 ODE 在这里改写成的 **Stochastic Differential Equation(SDE)**:
+
 $$
-X_0 = x_0 (initial \,\, condition)\\
-dX_t = u_t(X_t)dt + \sigma_t dW_t
+\begin{aligned}
+X_0 &= x_0 \quad (initial \, condition)\\
+dX_t &= u_t(X_t)dt + \sigma_t dW_t
+\end{aligned}
 $$
+
 这里的 $W_t$ 是一个**布朗运动（Brownian Motion）**
 
 > [!NOTE]
@@ -190,4 +216,3 @@ Sample 的算法:
 与 ODE 一样, 我们可以定义一个神经网络 $u^\theta_t$ 来表示 VF, 从而定义一个 Diffusion Model
 
 ![image-20260524151236843](./images/image-20260524151236843.png)
-
