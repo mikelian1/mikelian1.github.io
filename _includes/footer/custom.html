@@ -1,7 +1,7 @@
 {% assign footer_owner = site.author.name | default: site.title %}
 {% assign footer_updated_at = page.last_modified_at | default: page.modified | default: site.time %}
-{% capture visitor_page_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
-{% assign visitor_page_url = visitor_page_url | strip %}
+{% capture visitor_site_url %}{{ site.url }}{{ site.baseurl }}/{% endcapture %}
+{% assign visitor_site_url = visitor_site_url | strip %}
 
 <style>
   .site-footer-meta {
@@ -57,7 +57,7 @@
   <span
     class="site-footer-meta__badge"
     data-visitor-badge
-    data-visitor-url="{{ visitor_page_url | escape }}"
+    data-visitor-url="{{ visitor_site_url | escape }}"
     aria-label="Visitor count"
     title="Visitor count"
   >
@@ -72,7 +72,7 @@
     if (!badge) return;
 
     const countNode = badge.querySelector("[data-visitor-count]");
-    const fallbackUrl = window.location.origin + window.location.pathname;
+    const fallbackUrl = window.location.origin + "/";
     const visitorUrl = badge.getAttribute("data-visitor-url") || fallbackUrl;
 
     fetch("https://bsz.saop.cc/api", {
@@ -90,11 +90,11 @@
         return response.json();
       })
       .then((payload) => {
-        const pageViews = payload && payload.data && payload.data.page_pv;
-        if (typeof pageViews !== "number" || !Number.isFinite(pageViews)) {
-          throw new Error("Visitor API payload missing page_pv");
+        const siteViews = payload && payload.data && payload.data.site_pv;
+        if (typeof siteViews !== "number" || !Number.isFinite(siteViews)) {
+          throw new Error("Visitor API payload missing site_pv");
         }
-        countNode.textContent = String(pageViews);
+        countNode.textContent = String(siteViews);
       })
       .catch(() => {
         countNode.textContent = "--";
