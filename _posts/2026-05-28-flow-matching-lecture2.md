@@ -44,13 +44,13 @@ $$
 
 ![image-20260528135504918](/images/flow-matching-lecture2/image-20260528135504918.png)
 
-我们的 Probability Paths 定义为 $p_t(\cdot|z)$, 满足
+我们的 Probability Paths 定义为 $p_t(\cdot \mid z)$, 满足
 
 $$
-p_1(\cdot|z)=\delta_z,\,\, p_0(\cdot|z)=p_{init}
+p_1(\cdot \mid z)=\delta_z,\,\, p_0(\cdot \mid z)=p_{init}
 $$
 
-其中 $p_1(\cdot|z)$ 是**狄利克雷分布**.
+其中 $p_1(\cdot \mid z)$ 是**狄利克雷分布**.
 
 <div class="notice--info" markdown="1">
 **Note:**
@@ -64,13 +64,13 @@ $$
 1. Probability Path 指的是一个随时间连续变化的概率密度函数族. 
 2. Conditional Probability Path 中的 Condition 是一个 $p_{data}$ 中 sample 的数据点. 
 3. $\delta_z$ 是一个每次采样只能采样出 $z$ 的分布. 
-4. $p_t(\cdot|z)$ 是在 $p_0$ 和 $p_1$ 之间的平滑插值.
+4. $p_t(\cdot \mid z)$ 是在 $p_0$ 和 $p_1$ 之间的平滑插值.
 </div>
 
 我们可以==选择==构建 Gaussian conditional probability path: 
 
 $$
-p_t(\cdot|z) = \mathcal{N}(\alpha_t z, \beta^2_t I_d)
+p_t(\cdot \mid z) = \mathcal{N}(\alpha_t z, \beta^2_t I_d)
 $$
 
 
@@ -113,13 +113,13 @@ $$
 对于任意事件 $A$，全概率公式的形式为：
 
 $$
-P(A) = \sum_{i=1}^{n} P(B_i)P(A|B_i)
+P(A) = \sum_{i=1}^{n} P(B_i)P(A \mid B_i)
 $$
 
 如果是**连续型随机变量**的形式，求和符号 $\sum$ 会变成积分符号 $\int$：
 
 $$
-P(A) = \int_{-\infty}^{+\infty} P(A|B=y)f_Y(y)dy
+P(A) = \int_{-\infty}^{+\infty} P(A \mid B=y)f_Y(y)dy
 $$
 
 </div>
@@ -127,7 +127,7 @@ $$
 基于全概率公式, 可以直接写出
 
 $$
-p_t(x) = \int_{\mathbb{R}^d} p_t(x|z)p_{data}(z)dz
+p_t(x) = \int_{\mathbb{R}^d} p_t(x \mid z)p_{data}(z)dz
 $$
 
 
@@ -151,15 +151,15 @@ $$
 对于每个 Conditional Probability Path, 都存在一个等效的 ODE ^[1]^. 
 
 $$
-X_0\sim p_0(\cdot|z), \frac{d}{dt} X_t = u_t(X_t|z) \,\, \Rightarrow \,\, X_t\sim p_t(\cdot|z)
+X_0\sim p_0(\cdot \mid z), \frac{d}{dt} X_t = u_t(X_t \mid z) \,\, \Rightarrow \,\, X_t\sim p_t(\cdot \mid z)
 $$
 
-其中, $p_0(\cdot|z)$ 就是 $p_{init}$ 这个式子在说, 我们可以从 $p_{init}$ 中采样, 然后沿着 VF 演化到 $t$ 时刻 (比如用 Euler method), 其等效于从 $p_t(\cdot|z)$ 中采样. 
+其中, $p_0(\cdot \mid z)$ 就是 $p_{init}$ 这个式子在说, 我们可以从 $p_{init}$ 中采样, 然后沿着 VF 演化到 $t$ 时刻 (比如用 Euler method), 其等效于从 $p_t(\cdot \mid z)$ 中采样. 
 
 在 (4) 的情形下, 这个 VF 形式非常简单 ^[2]^:
 
 $$
-u_t(x|z)=\big( \dot \alpha_t - \frac{\dot \beta_t}{\beta_t}\alpha_t  \big) z + \frac{\dot \beta_t}{\beta_t} x
+u_t(x \mid z)=\big( \dot \alpha_t - \frac{\dot \beta_t}{\beta_t}\alpha_t  \big) z + \frac{\dot \beta_t}{\beta_t} x
 $$
 
 好, 我们现在有了 Conditional Vector Field, 可以去构造 Marginal Vector Field.
@@ -182,7 +182,7 @@ $$
 这样的 $u_t(x)$ 是存在的, 可以证明 ^[3]^
 
 $$
-u_t(x) = \int u_t(x|z)\frac{p_t(x|z)p_{data}(z)}{p_t(x)}dz
+u_t(x) = \int u_t(x \mid z)\frac{p_t(x \mid z)p_{data}(z)}{p_t(x)}dz
 $$
 
 满足 (13) 的要求.
@@ -192,7 +192,7 @@ $$
 一个自然的想法是用 $u_t$ 的 squared error 作为 loss, 也就是说我们将 **flow matching loss** 定义为
 
 $$
-\mathcal {L}_{FM} = \mathbb{E}_{t\sim \mathcal{U}(0,1),\, z\sim p_{data}, \,\, x\sim p_t(\cdot|z)}[||\hat u_t^\theta(x) - u_t(x) ||^2]
+\mathcal {L}_{FM} = \mathbb{E}_{t\sim \mathcal{U}(0,1),\, z\sim p_{data}, \,\, x\sim p_t(\cdot \mid z)}[||\hat u_t^\theta(x) - u_t(x) ||^2]
 $$
 
 
@@ -205,7 +205,7 @@ $$
 不过, 这个损失是不可计算的, 因为其依赖 $u_t(x)$, 而计算 $u_t(x)$ 需要根据 (14) 式, 这个式子带有 $p_{data}$, 这个 $p_{data}$ 本来就是我们要求的未知分布. 幸运的是, 可以证明 ^[4]^ , 最小化 flow matching loss 等价于最小化以下 **conditional flow matching loss**
 
 $$
-\mathcal {L}_{CFM} = \mathbb{E}_{t\sim \mathcal{U}(0,1),\, z\sim p_{data}, \,\, x\sim p_t(\cdot|z)}[||\hat u_t^\theta(x) - u_t(x|z) ||^2]
+\mathcal {L}_{CFM} = \mathbb{E}_{t\sim \mathcal{U}(0,1),\, z\sim p_{data}, \,\, x\sim p_t(\cdot \mid z)}[||\hat u_t^\theta(x) - u_t(x \mid z) ||^2]
 $$
 
 我们终于可以将之前做的所有不明所以的事情都用起来了, 这里我不省略剩下的推导:
@@ -241,7 +241,7 @@ $$
 **Note:**
 
 + 这里的 $tz+(1-t)\epsilon$ 对应于 $x = tz + (1-t) \epsilon$ 
-+ 这里的 $z-\epsilon$ 对应于 $u_t(x|z)$
++ 这里的 $z-\epsilon$ 对应于 $u_t(x \mid z)$
 </div>
 
 至此, 我们终于得到了我们的训练目标. 整个 loss 计算可以通过以下流程做到:
