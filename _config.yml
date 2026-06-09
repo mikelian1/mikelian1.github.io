@@ -23,11 +23,11 @@ repository               : "mikelian1/mikelian1.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"
-  name             : "Ming Li"
+  avatar           : "lx.png"
+  name             : "Xu Lian"
   pronouns         : # example: "she/her"  
-  bio              : "Hi! I am Xu Lian (连序), a first-year Ph.D. student jointly trained by Zhejiang University, Westlake University, and the Shanghai Innovation Institute. I am advised by <a href=\"https://en.westlake.edu.cn/faculty/xiangru-huang.html\">Xiangru Huang</a> and <a href=\"https://yanweifu.github.io/\">Yanwei Fu</a>. My research focuses on 3D reconstruction and generation, with a particular interest in scalable pipelines for automatically acquiring high-quality, interactive 3D assets. I am interested not only in watertight 3D objects, but also in modeling cloth and garments."
-  location         : ""
+  bio              : "Hi! I am Xu Lian (连序), a freshman in the School of Automation at Southeast University. My research interests include robotic grasping, VLA models, world action models, and autonomous driving."
+  location         : "Jiangsu, China"
   employer         : ""
   uri              : # URL
   email            : "mikelian3745@gmail.edu.cn"
@@ -35,7 +35,7 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.co.jp/citations?user=X7sXq_8AAAAJ"
+  googlescholar    : 
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            :
@@ -51,7 +51,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "SII-LiMing"
+  github           : "mikelian1"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -74,16 +74,16 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : "SII_LiMing"
+  twitter          : # Username
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
   xing             : # Username
   youtube          : # Username
   zhihu            : # Username
-  rednote          : "https://www.xiaohongshu.com/user/profile/64b55501000000001c029011"
-  douyin           : "https://www.douyin.com/user/MS4wLjABAAAAFA-pMY4kvDEafjzqOJTNJ7yirdokbC_3UD8ogkCIJB3d18cXBOSht4wRgwFigbnf"
-  wechat_qr        : "/images/wechat.jpg"
+  rednote          : "https://xhslink.com/m/3nGVryqU1Ej"
+  douyin           : # URL
+  wechat_qr        : # "/images/wechat.jpg"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
