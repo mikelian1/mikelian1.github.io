@@ -9,14 +9,14 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "Ming Li"
+title                    : "Xu Lian"
 title_separator          : "-"
-name                     : &name "Ming Li"
-description              : &description "Academic homepage template for Ming Li"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://sii-liming.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+name                     : &name "Xu Lian"
+description              : &description "Academic homepage for Xu Lian"   # Update this with a general description of your site, this is the default if not overridden by a page
+url                      : https://mikelian1.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "SII-LiMing/SII-LiMing.github.io"
+repository               : "mikelian1/mikelian1.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -26,11 +26,11 @@ author:
   avatar           : "profile.jpg"
   name             : "Ming Li"
   pronouns         : # example: "she/her"  
-  bio              : "Hi! I am Ming Li (李明), a first-year Ph.D. student jointly trained by Zhejiang University, Westlake University, and the Shanghai Innovation Institute. I am advised by <a href=\"https://en.westlake.edu.cn/faculty/xiangru-huang.html\">Xiangru Huang</a> and <a href=\"https://yanweifu.github.io/\">Yanwei Fu</a>. My research focuses on 3D reconstruction and generation, with a particular interest in scalable pipelines for automatically acquiring high-quality, interactive 3D assets. I am interested not only in watertight 3D objects, but also in modeling cloth and garments."
+  bio              : "Hi! I am Xu Lian (连序), a first-year Ph.D. student jointly trained by Zhejiang University, Westlake University, and the Shanghai Innovation Institute. I am advised by <a href=\"https://en.westlake.edu.cn/faculty/xiangru-huang.html\">Xiangru Huang</a> and <a href=\"https://yanweifu.github.io/\">Yanwei Fu</a>. My research focuses on 3D reconstruction and generation, with a particular interest in scalable pipelines for automatically acquiring high-quality, interactive 3D assets. I am interested not only in watertight 3D objects, but also in modeling cloth and garments."
   location         : ""
   employer         : ""
   uri              : # URL
-  email            : "liming@sii.edu.cn"
+  email            : "mikelian3745@gmail.edu.cn"
 
   # Academic websites
   academia         : # URL
