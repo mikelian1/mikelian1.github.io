@@ -1,15 +1,19 @@
-- date: "2026.4"
-  icon: "🚀"
-  html: 'Joined <a href="https://hyper3d.ai/">Rodin</a> as an <span class="news-highlight">Intern Researcher</span>.'
-- date: "2026.3"
-  icon: "🏃"
-  html: 'Finished the <span class="news-highlight">2026 Suzhou Taihu Digital Half Marathon</span> with a <span class="news-highlight">PB of 2:43</span>.'
-- date: "2026.2"
-  icon: "📄"
-  html: 'Two papers were accepted to <span class="news-highlight">CVPR 2026</span>: <a href="https://arxiv.org/abs/2601.16672">ReWeaver</a> (<span class="news-highlight">first author</span>) and <a href="https://arxiv.org/abs/2511.18765">NI-Tex</a> (<span class="news-highlight">second author</span>).'
-- date: "2025.7"
-  icon: "🔬"
-  html: 'Joined the <a href="https://rcif.westlake.edu.cn/rcdw/wlcls_2159/pi_2160/202503/t20250323_53628.shtml">Xiangru Huang Lab</a> at <span class="news-highlight">Westlake University</span> as a <span class="news-highlight">visiting student</span>.'
-- date: "2025.6"
-  icon: "🎓"
-  html: 'Graduated from <span class="news-highlight">Harbin Institute of Technology</span> with a <span class="news-highlight">B.Eng.</span>.'
+# - date: "2026.4"
+#   icon: "🚀"
+#   html: 'Joined <a href="https://hyper3d.ai/">Rodin</a> as an <span class="news-highlight">Intern Researcher</span>.'
+# - date: "2026.3"
+#   icon: "🏃"
+#   html: 'Finished the <span class="news-highlight">2026 Suzhou Taihu Digital Half Marathon</span> with a <span class="news-highlight">PB of 2:43</span>.'
+# - date: "2026.2"
+#   icon: "📄"
+#   html: 'Two papers were accepted to <span class="news-highlight">CVPR 2026</span>: <a href="https://arxiv.org/abs/2601.16672">ReWeaver</a> (<span class="news-highlight">first author</span>) and <a href="https://arxiv.org/abs/2511.18765">NI-Tex</a> (<span class="news-highlight">second author</span>).'
+# - date: "2025.7"
+#   icon: "🔬"
+#   html: 'Joined the <a href="https://rcif.westlake.edu.cn/rcdw/wlcls_2159/pi_2160/202503/t20250323_53628.shtml">Xiangru Huang Lab</a> at <span class="news-highlight">Westlake University</span> as a <span class="news-highlight">visiting student</span>.'
+# - date: "2025.6"
+#   icon: "🎓"
+#   html: 'Graduated from <span class="news-highlight">Harbin Institute of Technology</span> with a <span class="news-highlight">B.Eng.</span>.'
+
+- date: "2026.6"
+  icon: "🏁"
+  html: 'Started building my personal homepage.'
