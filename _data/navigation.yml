@@ -14,14 +14,14 @@ main:
   - title: "Education"
     url: /teaching/    
 
-  - title: "Intern"
+  - title: "Internship"
     url: /portfolio/
 
   - title: "Publications"
     url: /publications/
     
-  - title: "Honors&Awards"
+  - title: "Honors & Awards"
     url: /cv/
 
-  - title: "Blog"
-    url: /year-archive/
+  - title: "Blog Posts"
+    url: /blog-posts/

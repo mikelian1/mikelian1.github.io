@@ -26,11 +26,11 @@ author:
   avatar           : "lx.png"
   name             : "Xu Lian"
   pronouns         : # example: "she/her"  
-  bio              : "Hi! I am Xu Lian (连序), a freshman in the School of Automation at Southeast University. My research interests include robotic grasping, VLA models, world action models, robotic learning, and autonomous driving."
+  bio              : "Hi! I am Xu Lian (连序), a freshman in the School of Automation at Southeast University."
   location         : "Jiangsu, China"
   employer         : ""
   uri              : # URL
-  email            : "mikelian3745@gmail.edu.cn"
+  email            : "mikelian3745@gmail.com"
 
   # Academic websites
   academia         : # URL

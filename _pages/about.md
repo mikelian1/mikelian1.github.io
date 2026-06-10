@@ -9,6 +9,8 @@ redirect_from:
 
 Hi! I am **Xu Lian (连序)**, a freshman in the School of Automation at **Southeast University**. My research interests include robotic grasping, VLA models, world action models, robotic learning, and autonomous driving."
 
+Recently, I have focused on estimating **grasp poses for transparent objects** based on deep learning, hoping to contribute to improving the robustness of robots in extreme scenarios.
+
 ## News
 
 {% include sections/news.html %}
@@ -16,11 +18,11 @@ Hi! I am **Xu Lian (连序)**, a freshman in the School of Automation at **South
 ## Education
 {% include sections/education.html compact=true %}
 
-## Intern
+## Internship
 {% include sections/intern.html compact=true %}
 
 ## Publications
 {% include sections/publications.html compact=true %}
 
-## Honors&Awards
+## Honors & Awards
 {% include sections/honors.html %}
