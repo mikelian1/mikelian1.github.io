@@ -16,4 +16,7 @@
 
 - date: "2026.6"
   icon: "🏁"
-  html: 'Started building my personal homepage.'
+  html: "Started building my personal homepage."
+- date: "2026.5"
+  icon: "🌐"
+  html: 'Built a local bilingual article reading page: <a href="https://github.com/mikelian1/ppenglish">ppenglish</a>.'

@@ -1,0 +1,7 @@
+- title: "ppenglish: A Local Bilingual Reading Tool for Intensive English Learning"
+  subtitle: "Nuxt2, Vue2, IndexedDB, Python, DeepSeek API"
+  description: "A lightweight local web app for bilingual article reading, paragraph-level highlighting, vocabulary collection, and AI-assisted explanation. Designed for personal intensive reading workflows with offline-first local storage."
+  image: "projects/ppenglish.png"
+  links:
+    - label: "GitHub"
+      url: https://github.com/mikelian1/ppenglish

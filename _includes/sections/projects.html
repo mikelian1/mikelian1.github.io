@@ -1,0 +1,38 @@
+{% assign compact = include.compact %}
+{% assign projects = site.data.projects %}
+
+<p>Selected engineering and research-oriented projects in AI, robotics, and learning tools.</p>
+
+<div class="project-list">
+  {% for project in projects %}
+    <div class="project-card{% if compact %} compact{% endif %}">
+      <div class="project-media{% if compact %} compact{% endif %}">
+        {% if project.image %}
+          <img src="{{ project.image | prepend: '/images/' | relative_url }}" alt="{{ project.title }}">
+        {% else %}
+          <div class="project-placeholder{% if compact %} compact{% endif %}">Project preview</div>
+        {% endif %}
+        {% if project.subtitle %}
+          <div class="project-subtitle{% if compact %} compact{% endif %}">{{ project.subtitle }}</div>
+        {% endif %}
+      </div>
+      <div class="project-content">
+        <div class="project-title{% if compact %} compact{% endif %}">{{ project.title }}</div>
+        {% if project.description %}
+          <div class="project-description{% if compact %} compact{% endif %}">{{ project.description }}</div>
+        {% endif %}
+        {% if project.links %}
+          <div class="project-links">
+            {% for link in project.links %}
+              {% if link.url %}
+                <a class="btn btn--inverse btn--small" href="{{ link.url }}">{{ link.label }}</a>
+              {% else %}
+                <span class="btn btn--inverse btn--small btn--disabled">{{ link.label }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
